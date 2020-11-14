@@ -1,0 +1,82 @@
+Lab 1.5 Questions
+1. Where are the mv and sh programs located in the file system?
+   	 mv and sh commands are located at /bin in the file system. (Command: “which <command>”)
+   
+2. What executable programs in /usr/bin have names that are exactly two characters long and end in r, and what do they do?
+   	The executable programs are pr and tr.
+    	    - pr: Convert text files for printing
+   	    - tr: translate or delete characters
+	    
+3. When you execute the command named by the symbolic link /usr/bin/emacs, which file actually is executed?
+   	When we execute /usr/bin/emacs, we are actually executing /etc/alternatives/emacs.  (Command: “readlink emacs” or “ll /usr/bin |grep emacs”)
+
+4. What is the version number of the /usr/bin/gcc program? of the plain gcc program? Why are they different programs?
+   	“/usr/bin/gcc --version”, output: 4.8.5
+   	“gcc --version”, output: 10.2.0
+    	These programs are different because the plain gcc is found inside /usr/local/cs/bin/ while /usr/bin/gcc is found in /usr/bin. (Command: “which gcc”)
+
+5. The chmod program changes permissions on a file. What does the symbolic mode u+sx,o-w mean, in terms of permissions?
+       “chmod u+sx” gives owner of the file permission to execute the file and sets user or group ID on execution
+       	“chmod o-w” removes other users not in the file group’s permission to write on the file
+
+6. Use the find command to find all directories modified in the last four weeks that are located under (or are the same as) the directory /usr/local/cs.
+       Command: “find /usr/local/cs -type d -mtime -28”
+
+7. Of the files in the same directory as find, how many of them are symbolic links?
+       2732 Symbolic Links (Command: “find /usr/local/cs -type l | wc -l”)
+
+8. What is the oldest regular file in the /usr/lib64 directory? Use the last-modified time to determine age. Specify the name of the file without the /usr/lib64/ prefix. Consider files whose names start with ".".
+   	librom1394.so.0.3.0  last modified on Dec 28, 2013 (Command: “ls -lta”)
+
+9. Where does the locale command get its data from?
+   	/usr/lib/locale/locale-archive and /usr/share/i18n/locales (Command: “man locale” and look for “FILES”)
+
+10. In Emacs, what commands have downcase in their name?
+       - downcase-dwim → M-x ... RET
+       - downcase-region → C-x C-l
+       - downcase-word →  M-l
+       (Command: “C-h a downcase”)
+
+11. Briefly, what do the Emacs keystrokes C-M-r through C-M-v do? Can you list their actions concisely?
+       C-M-r: runs the command isearch-backward-regexp; rather than a forward regexp search (C-M-s) starting below the cursor; C-M-v starts searching above the cursor
+       C-M-v: runs the command scroll-other-window; let’s say you have two buffers on two separate screens, C-M-v will scroll the buffer that you are currently not in
+
+12. In more detail, what does the Emacs keystroke C-g do?
+       C-g: Quits any running or partially typed command
+       ex. We can abort a search (C-s) by typing C-g
+
+13. What does the Emacs yank function do, and how can you easily invoke it using keystrokes?
+       C-y (yank): Reinserts the last piece of deleted text; also works as the copy and paste tool along with M-w (copy)
+
+14. When looking at the directory /usr/bin, what's the difference between the output of the ls -l command, and the directory listing of the Emacs dired command?
+       Besides having different color themes, the directory listing of the Emacs dired command (“C-x d”) displays all files including entries that start with ‘.’ while “ls -l” does not.
+     
+
+
+
+Dribble files corresponding to lab numbers
+	Lab 1.1 --> lab1.drib
+	Lab 1.2 --> lab2.drib
+	Lab 1.3 --> lab3.drib
+	Lab 1.4 --> lab4.drib
+	Lab 1.6 --> lab5.drib
+
+
+
+
+Notes on myspell
+      myspell takes a text file as stdin and displays all mispelled 'alphabetical' words in that file.
+
+      Everytime myspell is called, a "sorted.words" file is generated in your current directory
+      with the sorted contents of /usr/share/dict/linux.words.
+
+      The myspell implementation performs multiple spelling checks by performing multiple translations
+      of characters (inspect 'myspell' shell script to learn more).
+      Spelling checks disregard capitalization; to specify, 
+
+      	 A file containing the word "Assignment" (uppercase A) will not be evaluated as a spelling error despite only
+	 "assignment" (lowercase a) being present in sorted.words.
+	 
+      Because my implementation disregards capilization, the final output of all mispelled words
+      will be in lowercase letter. This means a mispelled word like "ASDFGH" will be outputed as "asdfgh"
+      

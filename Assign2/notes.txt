@@ -1,0 +1,17 @@
+Lab 2.1 Questions
+Type C-h k C-h k and describes what happens and why. (This should relate to the C-h b output mentioned previously.)
+     
+     Typing C-h k C-h k takes me to the documentation of the C-h k keybinding. This is because C-h k runs the command describe-key.
+
+Type C-h k M-SPC and describes what happens and why. (This should also relate.)
+     Typing C-h k M-SPC takes me to the documentation of the M-SPC keybinding.
+
+Homework Questions
+What happens when this script is invoked on an empty file like /dev/null, and why?
+     An IndexError occurs because randline.py is unable to randomly select a line in a file with no lines.
+
+What happens when this script is invoked with Python 3 rather than Python 2, and why? (You can run Python 3 on the SEASnet hosts by using the command python3 instead of python.)
+     A syntax error occurs on line 65 of randline.py. The command “except IOerror as (errno, strerror):” works in Python2 but not on Python3.
+
+What happens when your shuf.py script is invoked with Python 2 rather than Python 3, and why?
+     My shuf.py runs without error for both Python2 and Python3 because I accounted for the changes between the old and new versions of Python.

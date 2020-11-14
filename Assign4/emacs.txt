@@ -1,0 +1,9 @@
+The differences I noticed between Savannah's Emacs repo versus Eggert's
+Emacs repo are the branch count and commit comount. In the Savannah's
+version, the repo seems to only contain the master branch unlike Eggert's 
+version. In Eggert's version, there are many more branches alongside the 
+master branch. Regarding commits, I used the 'git rev-list --all --count' 
+command to reveal the number of total commits between all branches and found
+that Eggert's Emacs repo has 149396, while the Savannah repo has 149444. 
+The greater number of commits in Savannah's repo may lead us to believe that 
+it is a later version than Eggert's repo.

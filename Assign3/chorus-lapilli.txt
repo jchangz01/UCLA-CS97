@@ -1,0 +1,147 @@
+Steps to Create chrous-lapilli Project (labeled in numbers)
+
+1. Make sure you have completed the tic-tac-toe tutorial
+
+   found at https://reactjs.org/tutorial/tutorial.html
+
+
+
+2. First, we will implement a new state element to bound the 
+
+   insertion limit to '6' 
+
+      ex. this.state = { insertionCount: 0 }
+
+   Edit the handleClick method to prevent any marks from 
+
+   being made after 6 'X' or 'O' are present on the board
+
+   Also, edit the jumpTo method to revert the 
+
+   insertionCount to the proper number of marks 
+
+
+
+3. From the previous step, you should have an conditional statement
+
+   for the case where there is less than 6 marks or 6 marks are present.
+
+   - When there is LESS than 6 marks, you should have the normal
+
+     insertion case
+
+   - When there is 6 marks, we want to track for 3 cases
+
+        1. Click 'X' to select X
+
+        2. Click 'O' to select O
+
+        3. Click empty square to move 'X' or 'O' to that square
+
+            - Only availible after case 1 and 2 have been triggered
+
+
+
+4. When selecting X, make sure it is X's turn and create a new state that 
+
+   you will set to be the position of the X mark that the player has 
+
+   selected. 
+
+      ex. If a X player selects the top right block then
+
+         this.setstate({ pieceSelectedPos: 2 })
+
+      assuming grid is formatted as
+
+      0 1 2
+
+      3 4 5
+
+      6 7 8
+
+
+
+5. Same steps above apply for 'O'
+
+
+
+6. When moving a mark to a square, check if square is empty , 
+
+   a piece was selected, and the square is adjacent
+
+   to the selected piece. If cases are met, alter
+
+   contents in selected square and remove contents of prior square
+
+   Perform set state on history, stepNumber, who's turn it is, and
+
+   reset the piece selected back to null.
+
+
+
+7. Declaring a function to determine if positions are adjacent.
+
+   We can simply define a function that takes a board position (0-8),
+
+   and code a switch statement that will return adjacent positions
+
+   in an array. Traverse the array to check if the desired new position
+
+   is in the array.
+
+
+
+8. Implementing a final rule, after 6 pieces are present on 
+
+   the board, we must check if a player is occupying the middle
+
+   square. If so, they MUST either vacate the square on their
+
+   next turn or make a winning move that turn! We will implement this 
+
+   inside the 'moving a mark to a square' case. Check who's turn it 
+
+   is and whether the board is occupied at the middle square. If this is
+
+   met, we will evaluate their next move to see if it will lead to a win
+
+   or if they moving their piece off the middle square. If neither,
+
+   disregard the move.
+
+
+
+
+
+9. In the render method of the Game component, we will add text
+
+to the return function instructing players what to do after 6 
+
+pieces are present on the board. 
+
+
+
+
+
+10. OPTIONAL: When a piece is selected make that piece look faded
+
+      - Create a new class named 'selected' and add this class
+
+         to the responding block when clicked
+
+
+
+11. OPTIONAL: When a winner has been determined, set the 
+
+winning blocks to be bold
+
+      - This means we will first remove the the font-weight property
+
+         from the square class
+
+      - Create a new class named 'bold' and add this class to the winning
+
+         blocks when a winner is determined
+
+      

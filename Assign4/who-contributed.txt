@@ -1,0 +1,24 @@
+Investigation Steps
+	1. Use git grep "Even newspaper reports present contradictory information"
+	to check which file this text was added in.
+	2. From the output 
+	"northamerica:# and wrote "Even newspaper reports present contradictory
+	information."", we know the statement was added into the file northamerica.
+	3. Using this info, we find the commit that introduced this statement using
+	git log --source -S "Even newspaper reports present contradictory information"
+	 -- northamerica
+	4. This command will display the commit ID and metainfo regarding the commit.
+	5. From here, we can evaluate who made the commit (author) and when the
+	commit was made (date)
+
+Investigation Results
+	The statement "Even newspaper reports present contradicotry information"
+	was commited by David Olson on Thursday, December 21, 1995 at 11:43:42
+
+Side-note:
+	Invesigation could have also been made by simply using the command
+	git log -source -S "Even newspaper reports present contradictory information"
+	This would check the entire repo for any changes specified by the text 
+	following the -S option. However, doing this may result in noticebly slower
+	processing time because your machine has to look for all files and 
+	all commits rather than specifying a file

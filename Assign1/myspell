@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#generate sorted.words (sorted list of /usr/share/dict/linux.words)
+sort /usr/share/dict/linux.words > sorted.words
+
+#transform all characters in stdin file that are not present in /usr/share/dict/linux.words to newline
+transformedInput=$(tr -s '#' '[\n*]' |
+		   tr -s '$' '[\n*]' |
+		   tr -s '%' '[\n*]' |
+		   tr -s '(' '[\n*]' |
+		   tr -s ')' '[\n*]' |
+		   tr -s '*' '[\n*]' |
+		   tr -s '+' '[\n*]' |
+		   tr -s ':' '[\n*]' |
+		   tr -s ';' '[\n*]' |
+		   tr -s '<' '[\n*]' |
+		   tr -s '=' '[\n*]' |
+		   tr -s '>' '[\n*]' |
+		   tr -s '?' '[\n*]' |
+		   tr -s '@' '[\n*]' |
+		   tr -s '[' '[\n*]' |
+		   tr -s '\\' '[\n*]' |
+		   tr -s ']' '[\n*]' |
+		   tr -s '^' '[\n*]' |
+		   tr -s '_' '[\n*]' |
+		   tr -s '`' '[\n*]' |
+		   tr -s '{' '[\n*]' |
+		   tr -s '|' '[\n*]' |
+		   tr -s '}' '[\n*]' |
+		   tr -s '~' '[\n*]' |
+		   tr -s ' ' '[\n*]' )
+
+#initial comparison to check for words with special characters (non-alphabetical chars) or numbers
+nonUnique=$(sort -u <<< "$transformedInput" | comm -23 - sorted.words)
+
+#simplify our words by removing all non-alpabetical characters and comparing
+#crude implementation provided by assignment
+alphaAll=$(tr -cs 'A-Za-z' '[\n*]' <<< "$nonUnique" | sort -u | comm -23 - sorted.words)
+
+#convert first character of every word to uppercase and compare
+upperFirst=$(sed 's/.*/\u&/' <<< "$alphaAll" | sort -u | comm -23 - sorted.words)
+
+#convert all alphabetical characters to uppercase and compare once more
+upperAll=$(tr [:lower:] [:upper:] <<< "$upperFirst" | sort -u | comm -23 - sorted.words)
+
+#convert all alphabetical characters to lowercase and compare one final time
+lowerAll=$(tr [:upper:] [:lower:] <<< "$upperAll" | sort -u | comm -23 - sorted.words)
+
+echo "$lowerAll"

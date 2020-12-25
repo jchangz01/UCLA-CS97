@@ -1,0 +1,86 @@
+/*About navigation header CSS found in App.css */
+
+
+#about-h2 {
+  font-weight: bold;
+  color: white;
+  font-size: 32px;
+  margin-bottom: 1em;
+}
+
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+.card:hover{
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 28px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.title {
+  color: grey;
+}
+
+.my_button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #2774AE;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.my_button:hover {
+  background-color: #555;
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+#profile-pic {
+  width: 100%;
+  position: relative;
+  margin-bottom: 1em;
+}

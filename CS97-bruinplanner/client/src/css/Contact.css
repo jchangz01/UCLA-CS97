@@ -1,0 +1,39 @@
+#contact-main-content {
+  margin: 0 auto;
+  min-height: calc(99vh - 125px);
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+#contact-main-heading {
+  font-family: 'Nunito';
+  font-size: 27px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+#contact-main-subheading {
+  font-family: 'Nunito';
+  font-size: 16px;
+  margin: 10px;
+}
+
+
+
+.contact-first-name {
+    width: 49%;
+    float: left;
+}
+
+.contact-last-name {
+  width: 49%;
+  float: right;
+}
+
+.contact-inputs {
+    width: 100%;
+}

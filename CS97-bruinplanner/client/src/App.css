@@ -1,0 +1,161 @@
+/*/////////////////////////////////////
+  Header of home, about, contact pages
+/////////////////////////////////////*/
+#header {
+  position: relative;
+  line-height: 73px;
+  background-color: #2774AE;
+  z-index: 1000;
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+#header-content {
+  vertical-align: middle;
+  padding: 0 100px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+#header-title {
+  display: inline-block;
+  color: white;
+  font-size: 36px;
+  letter-spacing: -1.5px;
+}
+
+#header-logo {
+  color:#FFD100;
+  font-size: 36px;
+  padding-right: 7px;
+}
+
+#header-navigation {
+  float: right;
+}
+  #header-navigation > *{
+      margin-left: 36px;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+  }
+  #header-navigation > *:hover {
+      opacity: 0.7;
+  }
+
+.header-buttons {
+  background-color: white;
+  border: none;
+  border-radius: 5%;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/*//////////////////////////////////////
+  Content shared by login and signup page
+//////////////////////////////////////*/
+.logSign-button {
+  border: none;
+  border-radius: 3px;
+  padding: 10px 30px ;
+  font-size: 16px;
+  height: 50px;
+  font-weight: bold;
+}
+
+.logSign-inputs {
+  width: 100%;
+}
+
+/* Used across all pages */
+#message-container {
+  line-height: 50px; 
+  text-align: center;
+  width: 100vw;
+  animation:mymove 2s ease-out forwards;
+
+  /* Safari and Chrome */
+  -webkit-animation:mymove 2s;
+  }
+
+  @keyframes mymove
+  {   
+      from {opacity: 0}
+      to { opacity: 1}
+  }
+
+  @-webkit-keyframes mymove /* Safari and Chrome */
+  {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+
+#message-container-content {
+  font-size: 15px;
+  font-family: 'Nunito';
+}
+
+/*//////////////////////////////////////
+ Popular colors used on this website!
+//////////////////////////////////////*/
+.blue {
+  color: #2774AE;
+}
+
+.gold {
+  color: #FFD100;
+}
+
+.white {
+  color: white;
+}
+
+.success-green {
+  color: #4BB543;
+}
+
+.error-red {
+  color: #FF9494;   
+}
+
+
+.blue-br {
+  background-color: #2774AE;
+}
+
+.lightblue-br {
+  background-color: #8BB8E8;
+}
+
+.darkblue-br {
+  background-color: #003B5C;
+}
+
+.white-br {
+  background-color: white;
+}
+
+.success-green-br {
+  background-color: #4BB543;
+}
+
+.error-red-br {
+  background-color: #FF9494;   
+}
+
+
+/*//////////////////
+General Animations 
+//////////////////*/
+.spin {
+  animation: App-logo-spin infinite 3s linear;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
